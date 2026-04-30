@@ -1,4 +1,7 @@
+export const SAVE_DATA_VERSION = 1;
+
 export interface SaveDataModel {
+  version: number;
   areaStatusModels: AreaStatusModel[];
   userDataModels: UserDataModel[];
 }
