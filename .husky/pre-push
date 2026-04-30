@@ -1,1 +1,1 @@
-npx playwright test --passWithNoTests
+npx playwright test --pass-with-no-tests
