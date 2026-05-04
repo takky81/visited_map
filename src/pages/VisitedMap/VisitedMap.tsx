@@ -377,6 +377,7 @@ export default function VisitedMap() {
                       <button
                         onClick={() => handleOpenEditUser(user)}
                         className={userActionBtnCls(isSelected)}
+                        aria-label="編集"
                         title="編集"
                       >
                         ✎
@@ -384,6 +385,7 @@ export default function VisitedMap() {
                       <button
                         onClick={() => handleDeleteUser(user.userUuid)}
                         className={userActionBtnCls(isSelected)}
+                        aria-label="削除"
                         title="削除"
                       >
                         ×
@@ -427,6 +429,7 @@ export default function VisitedMap() {
                       }
                       disabled={index === 0}
                       className="w-4 h-4 flex items-center justify-center text-slate-500 hover:text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                      aria-label="上に移動"
                       title="上に移動"
                     >
                       ↑
@@ -437,6 +440,7 @@ export default function VisitedMap() {
                       }
                       disabled={index === statuses.length - 1}
                       className="w-4 h-4 flex items-center justify-center text-slate-500 hover:text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                      aria-label="下に移動"
                       title="下に移動"
                     >
                       ↓
@@ -444,6 +448,7 @@ export default function VisitedMap() {
                     <button
                       onClick={() => handleOpenEditStatus(status)}
                       className="w-4 h-4 flex items-center justify-center text-slate-500 hover:text-slate-300 transition-colors"
+                      aria-label="編集"
                       title="編集"
                     >
                       ✎
@@ -451,6 +456,7 @@ export default function VisitedMap() {
                     <button
                       onClick={() => handleDeleteStatus(status.areaStatusUuid)}
                       className="w-4 h-4 flex items-center justify-center text-slate-500 hover:text-red-400 transition-colors"
+                      aria-label="削除"
                       title="削除"
                     >
                       ×
@@ -558,6 +564,7 @@ function SidebarSectionHeader({ label, onAdd, addTitle }: SidebarSectionHeaderPr
       <button
         onClick={onAdd}
         className="w-5 h-5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-700 rounded transition-colors text-base leading-none"
+        aria-label={addTitle}
         title={addTitle}
       >
         +
