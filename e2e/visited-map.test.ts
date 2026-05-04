@@ -16,7 +16,7 @@ test('マップ画面にSVGが表示される', async ({ page }) => {
 });
 
 test('ユーザー選択セクションが表示される', async ({ page }) => {
-  await expect(page.getByText('ユーザー')).toBeVisible();
+  await expect(page.getByText('ユーザー', { exact: true })).toBeVisible();
 });
 
 test('訪問状態セクションが表示される', async ({ page }) => {
