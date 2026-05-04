@@ -13,7 +13,7 @@ describe('loadSaveData', () => {
   test('localStorage が空のときデフォルト初期データを返す', () => {
     const data = loadSaveData();
     expect(data.version).toBe(SAVE_DATA_VERSION);
-    expect(data.areaStatusModels).toHaveLength(3);
+    expect(data.areaStatusModels).toHaveLength(4);
     expect(data.userDataModels).toHaveLength(0);
   });
 

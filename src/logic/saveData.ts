@@ -7,6 +7,7 @@ export function createDefaultSaveData(): SaveDataModel {
     areaStatusModels: [
       { areaStatusUuid: crypto.randomUUID(), areaStatusName: '通過', areaStatusColor: '#FFD54F' },
       { areaStatusUuid: crypto.randomUUID(), areaStatusName: '観光', areaStatusColor: '#81C784' },
+      { areaStatusUuid: crypto.randomUUID(), areaStatusName: '宿泊', areaStatusColor: '#FFB74D' },
       { areaStatusUuid: crypto.randomUUID(), areaStatusName: '居住', areaStatusColor: '#64B5F6' },
     ],
     userDataModels: [],

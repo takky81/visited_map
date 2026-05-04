@@ -22,23 +22,25 @@ describe('createDefaultSaveData', () => {
     expect(data.version).toBe(SAVE_DATA_VERSION);
   });
 
-  test('初期データには訪問状態が3件ある', () => {
+  test('初期データには訪問状態が4件ある', () => {
     const data = createDefaultSaveData();
-    expect(data.areaStatusModels).toHaveLength(3);
+    expect(data.areaStatusModels).toHaveLength(4);
   });
 
-  test('初期訪問状態の名前が通過・観光・居住の順である', () => {
+  test('初期訪問状態の名前が通過・観光・宿泊・居住の順である', () => {
     const data = createDefaultSaveData();
     expect(data.areaStatusModels[0].areaStatusName).toBe('通過');
     expect(data.areaStatusModels[1].areaStatusName).toBe('観光');
-    expect(data.areaStatusModels[2].areaStatusName).toBe('居住');
+    expect(data.areaStatusModels[2].areaStatusName).toBe('宿泊');
+    expect(data.areaStatusModels[3].areaStatusName).toBe('居住');
   });
 
   test('初期訪問状態の色が仕様通りである', () => {
     const data = createDefaultSaveData();
     expect(data.areaStatusModels[0].areaStatusColor).toBe('#FFD54F');
     expect(data.areaStatusModels[1].areaStatusColor).toBe('#81C784');
-    expect(data.areaStatusModels[2].areaStatusColor).toBe('#64B5F6');
+    expect(data.areaStatusModels[2].areaStatusColor).toBe('#FFB74D');
+    expect(data.areaStatusModels[3].areaStatusColor).toBe('#64B5F6');
   });
 
   test('初期ユーザーが0件である', () => {
@@ -137,16 +139,16 @@ describe('deleteUsers', () => {
 describe('addAreaStatus', () => {
   test('訪問状態を追加すると配列末尾に追加される', () => {
     const data = createDefaultSaveData();
-    const result = addAreaStatus(data, { name: '宿泊', color: '#FF8A65' });
-    expect(result.areaStatusModels).toHaveLength(4);
-    expect(result.areaStatusModels[3].areaStatusName).toBe('宿泊');
-    expect(result.areaStatusModels[3].areaStatusColor).toBe('#FF8A65');
+    const result = addAreaStatus(data, { name: '滞在', color: '#FF8A65' });
+    expect(result.areaStatusModels).toHaveLength(5);
+    expect(result.areaStatusModels[4].areaStatusName).toBe('滞在');
+    expect(result.areaStatusModels[4].areaStatusColor).toBe('#FF8A65');
   });
 
   test('追加された訪問状態には UUID が付与される', () => {
     const data = createDefaultSaveData();
-    const result = addAreaStatus(data, { name: '宿泊', color: '#FF8A65' });
-    expect(result.areaStatusModels[3].areaStatusUuid).toBeTruthy();
+    const result = addAreaStatus(data, { name: '滞在', color: '#FF8A65' });
+    expect(result.areaStatusModels[4].areaStatusUuid).toBeTruthy();
   });
 });
 
@@ -176,7 +178,7 @@ describe('deleteAreaStatuses', () => {
     const data = createDefaultSaveData();
     const uuid = data.areaStatusModels[0].areaStatusUuid;
     const result = deleteAreaStatuses(data, new Set([uuid]));
-    expect(result.areaStatusModels).toHaveLength(2);
+    expect(result.areaStatusModels).toHaveLength(3);
     expect(result.areaStatusModels.find((s) => s.areaStatusUuid === uuid)).toBeUndefined();
   });
 
@@ -198,7 +200,7 @@ describe('deleteAreaStatuses', () => {
       data.areaStatusModels[1].areaStatusUuid,
     ]);
     const result = deleteAreaStatuses(data, uuids);
-    expect(result.areaStatusModels).toHaveLength(1);
+    expect(result.areaStatusModels).toHaveLength(2);
   });
 });
 
